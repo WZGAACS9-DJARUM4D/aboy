@@ -884,6 +884,322 @@ body{
     transform:translateX(-50%) translateY(0);
 }
 
+
+/* =====================================================
+   GENERATOR LAPORAN USER INFO
+===================================================== */
+.generator-screen{
+    width:100%;
+    max-width:680px;
+    position:relative;
+    z-index:6;
+    display:none;
+    animation:generatorOpen .45s ease both;
+}
+
+.generator-screen.show{
+    display:block;
+}
+
+@keyframes generatorOpen{
+    from{opacity:0; transform:translateY(25px) scale(.96);}
+    to{opacity:1; transform:translateY(0) scale(1);}
+}
+
+.generator-container{
+    position:relative;
+    padding:2px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#00eaff,#2563eb,#9333ea,#00eaff);
+    box-shadow:
+    0 0 35px rgba(0,234,255,.42),
+    0 0 80px rgba(37,99,235,.25);
+    animation:generatorFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes generatorFloat{
+    from{transform:translateY(0);}
+    to{transform:translateY(-9px);}
+}
+
+.generator-card{
+    border-radius:28px;
+    padding:28px;
+    background:rgba(2,6,23,.93);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(22px);
+    box-shadow:inset 0 0 35px rgba(255,255,255,.045);
+    position:relative;
+    overflow:hidden;
+}
+
+.generator-card::before{
+    content:'';
+    position:absolute;
+    width:230px;
+    height:230px;
+    right:-90px;
+    top:-90px;
+    border-radius:50%;
+    background:rgba(0,234,255,.22);
+    filter:blur(38px);
+    animation:innerLamp 5s ease-in-out infinite alternate;
+}
+
+.generator-card::after{
+    content:'';
+    position:absolute;
+    width:230px;
+    height:230px;
+    left:-100px;
+    bottom:-100px;
+    border-radius:50%;
+    background:rgba(147,51,234,.24);
+    filter:blur(40px);
+    animation:innerLamp 6s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes innerLamp{
+    from{opacity:.42; transform:scale(1);}
+    to{opacity:.92; transform:scale(1.28);}
+}
+
+.generator-shine{
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:80%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.12),transparent);
+    transform:skewX(-20deg);
+    animation:generatorShine 5s infinite;
+    z-index:1;
+    pointer-events:none;
+}
+
+@keyframes generatorShine{
+    0%{left:-120%;}
+    45%,100%{left:130%;}
+}
+
+.generator-content{
+    position:relative;
+    z-index:3;
+}
+
+.generator-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+}
+
+.generator-badge{
+    width:fit-content;
+    padding:8px 16px;
+    border-radius:999px;
+    color:#001018;
+    background:linear-gradient(90deg,#00eaff,#38bdf8);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1.3px;
+    box-shadow:0 0 20px rgba(0,234,255,.55);
+}
+
+.back-dashboard{
+    border:none;
+    border-radius:999px;
+    padding:11px 16px;
+    cursor:pointer;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    color:#eaffff;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.back-dashboard:hover{
+    background:#00eaff;
+    color:#001018;
+    box-shadow:0 0 22px rgba(0,234,255,.65);
+    transform:translateY(-3px);
+}
+
+.generator-content h2{
+    margin:0;
+    text-align:center;
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:.8px;
+    background:linear-gradient(90deg,#ffffff,#00eaff,#c084fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 25px rgba(0,234,255,.35);
+}
+
+.generator-subtitle{
+    margin:8px 0 22px;
+    text-align:center;
+    color:#bdf8ff;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.generator-content label{
+    display:block;
+    margin-bottom:9px;
+    font-weight:900;
+    color:#dffcff;
+    letter-spacing:.4px;
+}
+
+.generator-content textarea{
+    width:100%;
+    padding:16px;
+    border-radius:18px;
+    border:1.5px solid rgba(0,234,255,.55);
+    outline:none;
+    resize:vertical;
+    background:rgba(15,23,42,.94);
+    color:#ffffff;
+    font-size:15px;
+    line-height:1.7;
+    box-shadow:
+    inset 0 0 20px rgba(0,0,0,.48),
+    0 0 18px rgba(0,234,255,.12);
+    transition:.25s;
+    user-select:text;
+}
+
+.generator-content textarea:focus{
+    border-color:#00eaff;
+    box-shadow:
+    inset 0 0 20px rgba(0,0,0,.52),
+    0 0 28px rgba(0,234,255,.52);
+}
+
+.generator-content textarea::placeholder{
+    color:#64748b;
+}
+
+#dataInput{
+    height:145px;
+}
+
+#resultBox{
+    height:220px;
+    margin-top:8px;
+    border-color:rgba(34,197,94,.75);
+    background:rgba(2,6,23,.96);
+    color:#eaffff;
+    font-family:Consolas,'Courier New',monospace;
+}
+
+.generator-buttons{
+    display:flex;
+    gap:12px;
+    margin:18px 0 22px;
+}
+
+.generator-buttons button{
+    flex:1;
+    padding:14px 12px;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:.7px;
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+    text-transform:uppercase;
+}
+
+.generator-buttons button::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-80%;
+    width:55%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-20deg);
+    transition:.45s;
+}
+
+.generator-buttons button:hover::before{
+    left:130%;
+}
+
+.generator-buttons button:hover{
+    transform:translateY(-3px) scale(1.03);
+}
+
+.submit-report{
+    color:#001018;
+    background:linear-gradient(135deg,#00eaff,#38bdf8,#2563eb);
+    box-shadow:0 0 22px rgba(0,234,255,.45);
+}
+
+.copy-report{
+    color:#ffffff;
+    background:linear-gradient(135deg,#22c55e,#16a34a,#065f46);
+    box-shadow:0 0 22px rgba(34,197,94,.42);
+}
+
+.reset-report{
+    color:#ffffff;
+    background:linear-gradient(135deg,#fb7185,#ef4444,#991b1b);
+    box-shadow:0 0 22px rgba(239,68,68,.42);
+}
+
+.result-title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-top:4px;
+}
+
+.manual-note{
+    font-size:12px;
+    font-weight:800;
+    color:#7dd3fc;
+}
+
+.generator-info{
+    margin-top:14px;
+    text-align:center;
+    min-height:22px;
+    color:#a7f3d0;
+    font-size:14px;
+    font-weight:800;
+}
+
+.generator-line{
+    margin-top:16px;
+    height:3px;
+    border-radius:999px;
+    background:linear-gradient(90deg,transparent,#00eaff,#22c55e,#9333ea,#00eaff,transparent);
+    box-shadow:0 0 20px rgba(0,234,255,.85);
+    animation:lineGlow 2.5s infinite alternate;
+}
+
+@media(max-width:700px){
+    .generator-card{padding:22px;}
+    .generator-content h2{font-size:23px;}
+    .generator-buttons{flex-direction:column;}
+    #dataInput{height:130px;}
+    #resultBox{height:240px;}
+    .generator-container{animation:none;}
+}
+
 /* RESPONSIVE */
 @media(max-width:700px){
     body{
@@ -1038,7 +1354,7 @@ body{
         </div>
 
         <div id="lap" class="submenu">
-            <a href="#"><i class="fa-solid fa-user-pen"></i> Ganti Data</a>
+            <a href="#" onclick="openGeneratorData(); return false;"><i class="fa-solid fa-user-pen"></i> Ganti Data</a>
             <a href="#"><i class="fa-solid fa-lock"></i> Lock</a>
             <a href="#"><i class="fa-solid fa-font"></i> Spasi</a>
             <a href="#"><i class="fa-solid fa-shield-halved"></i> Dual ID</a>
@@ -1090,7 +1406,171 @@ body{
     </div>
 </div>
 
+
+<!-- GENERATOR LAPORAN USER INFO -->
+<div class="generator-screen" id="generatorScreen">
+    <div class="generator-container">
+        <div class="generator-card">
+            <div class="generator-shine"></div>
+
+            <div class="generator-content">
+                <div class="generator-top">
+                    <div class="generator-badge">GANTI DATA REPORT</div>
+                    <button class="back-dashboard" onclick="backToDashboard()">
+                        <i class="fa-solid fa-arrow-left"></i> KEMBALI
+                    </button>
+                </div>
+
+                <h2>Generator Laporan User Info</h2>
+                <div class="generator-subtitle">Tempel data mentah, lalu laporan otomatis tersusun rapi.</div>
+
+                <label>Masukkan Data Mentah</label>
+                <textarea id="dataInput" placeholder="Tempel data mentah di sini..."></textarea>
+
+                <div class="generator-buttons">
+                    <button class="submit-report" onclick="submitData()">Submit</button>
+                    <button class="copy-report" onclick="copyData()">Salin</button>
+                    <button class="reset-report" onclick="resetData()">Reset</button>
+                </div>
+
+                <div class="result-title-row">
+                    <label>Hasil Laporan</label>
+                    <div class="manual-note">Keterangan bisa diisi manual</div>
+                </div>
+
+                <textarea id="resultBox" placeholder="Hasil laporan akan muncul di sini..."></textarea>
+
+                <div class="generator-info" id="infoText"></div>
+                <div class="generator-line"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
+
+/* =====================================================
+   HALAMAN GENERATOR GANTI DATA
+===================================================== */
+function openGeneratorData(){
+    document.getElementById('mainApp').classList.add('locked');
+    document.getElementById('generatorScreen').classList.add('show');
+    setTimeout(() => {
+        const input = document.getElementById('dataInput');
+        if(input) input.focus();
+    }, 250);
+}
+
+function backToDashboard(){
+    document.getElementById('generatorScreen').classList.remove('show');
+    document.getElementById('mainApp').classList.remove('locked');
+}
+
+function formatTanggalIndonesia(){
+    const tanggal = new Date();
+    const options = {
+        day:'numeric',
+        month:'long',
+        year:'numeric'
+    };
+    return tanggal.toLocaleDateString('id-ID', options);
+}
+
+function rapikanHurufStaff(staffCode){
+    const staffMap = {
+        'wzgaacs9':'Wzgaacs9 / Cakra Darma'
+    };
+    const key = staffCode.toLowerCase();
+    return staffMap[key] || staffCode;
+}
+
+function ambilUserId(raw){
+    const tabParts = raw.split(/\t+/).map(item => item.trim()).filter(Boolean);
+    if(tabParts.length > 0){
+        return tabParts[tabParts.length - 1];
+    }
+    const words = raw.trim().split(/\s+/);
+    return words[words.length - 1] || '';
+}
+
+function ambilStaff(raw){
+    const tabParts = raw.split(/\t+/).map(item => item.trim()).filter(Boolean);
+    if(tabParts.length >= 2){
+        return rapikanHurufStaff(tabParts[1]);
+    }
+    return 'Wzgaacs9 / Cakra Darma';
+}
+
+function ambilPerubahan(raw, field){
+    const regex = new RegExp(field + '\\s*:\\s*([^=,\\n\\t]+?)\\s*=>\\s*([^,\\n\\t]+)', 'i');
+    const match = raw.match(regex);
+
+    if(!match){
+        return { sebelum:'', sesudah:'' };
+    }
+
+    return {
+        sebelum:match[1].trim(),
+        sesudah:match[2].trim()
+    };
+}
+
+function submitData(){
+    const raw = document.getElementById('dataInput').value.trim();
+    const resultBox = document.getElementById('resultBox');
+    const info = document.getElementById('infoText');
+
+    if(raw === ''){
+        info.textContent = 'Data masih kosong. Silakan tempel data terlebih dahulu.';
+        return;
+    }
+
+    const staff = ambilStaff(raw);
+    const userId = ambilUserId(raw);
+
+    const bank = ambilPerubahan(raw, 'bank');
+    const acc = ambilPerubahan(raw, 'acc');
+    const rek = ambilPerubahan(raw, 'rek');
+
+    const sebelum = `${bank.sebelum}, ${acc.sebelum}, ${rek.sebelum}`;
+    const sesudah = `${bank.sesudah}, ${acc.sesudah}, ${rek.sesudah}`;
+
+    const hasil = `Staff : ${staff}
+Tanggal : ${formatTanggalIndonesia()}
+User ID : ${userId}
+Keterangan : 
+Sebelum : ${sebelum}
+Sesudah : ${sesudah}`;
+
+    resultBox.value = hasil;
+    info.textContent = 'Laporan berhasil dibuat.';
+}
+
+function copyData(){
+    const resultBox = document.getElementById('resultBox');
+    const info = document.getElementById('infoText');
+
+    if(resultBox.value.trim() === ''){
+        info.textContent = 'Belum ada laporan yang bisa disalin.';
+        return;
+    }
+
+    navigator.clipboard.writeText(resultBox.value).then(function(){
+        info.textContent = 'Laporan berhasil disalin.';
+    }).catch(function(){
+        resultBox.select();
+        resultBox.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+        info.textContent = 'Laporan berhasil disalin.';
+    });
+}
+
+function resetData(){
+    document.getElementById('dataInput').value = '';
+    document.getElementById('resultBox').value = '';
+    document.getElementById('infoText').textContent = 'Form berhasil direset.';
+}
+
 /* =====================================================
    LOGIN HASH
    LOGIN YANG DIPAKAI:
@@ -1150,6 +1630,7 @@ function loginAccess(){
 /* BUKA DASHBOARD */
 function openDashboard(name){
     document.getElementById('loginScreen').classList.add('hide-login');
+    document.getElementById('generatorScreen').classList.remove('show');
     document.getElementById('mainApp').classList.remove('locked');
     document.getElementById('userInfo').innerHTML = `<i class="fa-solid fa-user"></i> ${name}`;
 }
@@ -1159,6 +1640,7 @@ function logoutAccess(){
     sessionStorage.clear();
 
     document.getElementById('mainApp').classList.add('locked');
+    document.getElementById('generatorScreen').classList.remove('show');
     document.getElementById('loginScreen').classList.remove('hide-login');
 
     document.getElementById('userid').value = '';
@@ -1180,6 +1662,7 @@ window.addEventListener('load', function(){
     }else{
         sessionStorage.clear();
         document.getElementById('mainApp').classList.add('locked');
+        document.getElementById('generatorScreen').classList.remove('show');
         document.getElementById('loginScreen').classList.remove('hide-login');
     }
 });
@@ -1365,11 +1848,17 @@ document.addEventListener('contextmenu', function(e){
 });
 
 document.addEventListener('copy', function(e){
+    if(e.target && (e.target.id === 'resultBox' || e.target.id === 'dataInput')){
+        return;
+    }
     e.preventDefault();
     showProtectWarning();
 });
 
 document.addEventListener('cut', function(e){
+    if(e.target && (e.target.id === 'resultBox' || e.target.id === 'dataInput')){
+        return;
+    }
     e.preventDefault();
     showProtectWarning();
 });
