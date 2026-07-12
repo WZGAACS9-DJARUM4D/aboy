@@ -1253,6 +1253,295 @@ body{
         max-width:190px;
     }
 }
+
+
+/* =====================================================
+   PANEL KANAN BONUS KEMENANGAN HARIAN SLOT
+===================================================== */
+.bonus-slot-backdrop{
+    position:fixed;
+    inset:0;
+    z-index:11990;
+    background:rgba(0,0,0,.62);
+    backdrop-filter:blur(6px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.35s ease;
+}
+
+.bonus-slot-backdrop.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.bonus-slot-panel{
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:12000;
+    width:min(980px,94vw);
+    height:100vh;
+    padding:22px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    color:#fff;
+    background:
+        radial-gradient(circle at 15% 5%,rgba(0,234,255,.16),transparent 30%),
+        radial-gradient(circle at 95% 90%,rgba(37,99,235,.20),transparent 35%),
+        linear-gradient(145deg,#020617,#07152b,#020617);
+    border-left:1px solid rgba(0,234,255,.38);
+    box-shadow:-25px 0 80px rgba(0,0,0,.62),-4px 0 30px rgba(0,234,255,.15);
+    transform:translateX(105%);
+    visibility:hidden;
+    transition:transform .45s cubic-bezier(.22,.8,.22,1),visibility .45s;
+}
+
+.bonus-slot-panel.show{
+    transform:translateX(0);
+    visibility:visible;
+}
+
+.bonus-slot-wrap{
+    width:100%;
+    min-height:calc(100vh - 44px);
+    padding:24px;
+    border-radius:28px;
+    background:rgba(255,255,255,.065);
+    border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(22px);
+    box-shadow:inset 0 0 35px rgba(255,255,255,.025),0 0 35px rgba(0,234,255,.10);
+}
+
+.bonus-slot-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.bonus-slot-title-box{
+    min-width:0;
+}
+
+.bonus-slot-eyebrow{
+    margin-bottom:7px;
+    color:#7dd3fc;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.bonus-slot-title{
+    margin:0;
+    color:#fff;
+    font-size:25px;
+    line-height:1.2;
+    font-weight:900;
+    letter-spacing:.6px;
+    text-shadow:0 0 22px rgba(0,234,255,.55);
+}
+
+.bonus-slot-close{
+    flex:0 0 auto;
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.bonus-slot-close:hover{
+    background:#ef4444;
+    border-color:#ef4444;
+    box-shadow:0 0 22px rgba(239,68,68,.55);
+    transform:rotate(90deg);
+}
+
+.bonus-slot-label{
+    display:block;
+    margin-bottom:9px;
+    color:#dffcff;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.bonus-slot-input{
+    width:100%;
+    min-height:210px;
+    padding:16px;
+    resize:vertical;
+    outline:none;
+    border-radius:18px;
+    border:1.5px solid rgba(0,234,255,.48);
+    background:rgba(2,6,23,.82);
+    color:#fff;
+    font-family:Consolas,'Courier New',monospace;
+    font-size:14px;
+    line-height:1.65;
+    box-shadow:inset 0 0 22px rgba(0,0,0,.5),0 0 20px rgba(0,234,255,.08);
+    transition:.25s;
+    user-select:text;
+}
+
+.bonus-slot-input:focus{
+    border-color:#00eaff;
+    box-shadow:inset 0 0 22px rgba(0,0,0,.52),0 0 28px rgba(0,234,255,.35);
+}
+
+.bonus-slot-input::placeholder{
+    color:#64748b;
+}
+
+.bonus-slot-buttons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:11px;
+    margin:16px 0 22px;
+}
+
+.bonus-slot-buttons button{
+    width:100%;
+    padding:13px 10px;
+    border:none;
+    border-radius:15px;
+    color:#fff;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:.7px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.bonus-slot-buttons button:hover{
+    transform:translateY(-3px);
+    filter:brightness(1.08);
+}
+
+.bonus-submit{
+    color:#001018 !important;
+    background:linear-gradient(135deg,#00eaff,#38bdf8,#2563eb);
+    box-shadow:0 0 20px rgba(0,234,255,.32);
+}
+
+.bonus-reset{
+    background:linear-gradient(135deg,#fb7185,#ef4444,#991b1b);
+    box-shadow:0 0 20px rgba(239,68,68,.28);
+}
+
+.bonus-copy{
+    background:linear-gradient(135deg,#22c55e,#16a34a,#065f46);
+    box-shadow:0 0 20px rgba(34,197,94,.28);
+}
+
+.bonus-slot-section-title{
+    margin:0 0 12px;
+    color:#fff;
+    font-size:18px;
+    font-weight:900;
+}
+
+.bonus-slot-table-wrap{
+    width:100%;
+    overflow-x:auto;
+    border-radius:17px;
+    border:1px solid rgba(0,234,255,.24);
+    background:rgba(2,6,23,.72);
+}
+
+.bonus-slot-table{
+    width:100%;
+    min-width:1320px;
+    border-collapse:collapse;
+    color:#fff;
+}
+
+.bonus-slot-table th,
+.bonus-slot-table td{
+    padding:12px 10px;
+    border:1px solid rgba(148,163,184,.20);
+    text-align:left;
+    white-space:nowrap;
+    font-size:12px;
+    user-select:text;
+}
+
+.bonus-slot-table th{
+    color:#001018;
+    background:linear-gradient(135deg,#00eaff,#38bdf8);
+    font-weight:900;
+    letter-spacing:.35px;
+}
+
+.bonus-slot-table tbody tr:nth-child(even){
+    background:rgba(255,255,255,.035);
+}
+
+.bonus-slot-table tbody tr:hover{
+    background:rgba(0,234,255,.08);
+}
+
+.bonus-slot-empty{
+    padding:28px !important;
+    color:#94a3b8;
+    text-align:center !important;
+}
+
+.bonus-slot-notification{
+    display:none;
+    margin-top:15px;
+    padding:11px 14px;
+    border-radius:13px;
+    color:#a7f3d0;
+    background:rgba(34,197,94,.10);
+    border:1px solid rgba(34,197,94,.32);
+    font-size:13px;
+    font-weight:900;
+    text-align:center;
+}
+
+.bonus-slot-notification.error{
+    color:#fecaca;
+    background:rgba(239,68,68,.10);
+    border-color:rgba(239,68,68,.35);
+}
+
+@media(max-width:700px){
+    .bonus-slot-panel{
+        width:100vw;
+        padding:10px;
+    }
+
+    .bonus-slot-wrap{
+        min-height:calc(100vh - 20px);
+        padding:17px;
+        border-radius:22px;
+    }
+
+    .bonus-slot-title{
+        font-size:19px;
+    }
+
+    .bonus-slot-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .bonus-slot-input{
+        min-height:190px;
+    }
+}
+
 </style>
 </head>
 
@@ -1355,7 +1644,7 @@ body{
 
         <div id="lap" class="submenu">
             <a href="#" onclick="openGeneratorData(); return false;"><i class="fa-solid fa-user-pen"></i> Ganti Data</a>
-            <a href="#"><i class="fa-solid fa-lock"></i> Lock</a>
+            <a href="#" onclick="openBonusSlot(); return false;"><i class="fa-solid fa-gift"></i> BONUS KEMENANGAN HARIAN SLOT</a>
             <a href="#"><i class="fa-solid fa-font"></i> Spasi</a>
             <a href="#"><i class="fa-solid fa-shield-halved"></i> Dual ID</a>
         </div>
@@ -1447,7 +1736,289 @@ body{
     </div>
 </div>
 
+
+<!-- PANEL KANAN BONUS KEMENANGAN HARIAN SLOT -->
+<div class="bonus-slot-backdrop" id="bonusSlotBackdrop" onclick="closeBonusSlot()"></div>
+
+<aside class="bonus-slot-panel" id="bonusSlotPanel" aria-hidden="true">
+    <div class="bonus-slot-wrap">
+        <div class="bonus-slot-top">
+            <div class="bonus-slot-title-box">
+                <div class="bonus-slot-eyebrow">LAPORAN UTAMA</div>
+                <h2 class="bonus-slot-title">BONUS KEMENANGAN HARIAN SLOT</h2>
+            </div>
+
+            <button class="bonus-slot-close" type="button" onclick="closeBonusSlot()" aria-label="Tutup panel">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <label class="bonus-slot-label" for="bonusInputData">Masukkan Data Seamless</label>
+        <textarea
+            class="bonus-slot-input"
+            id="bonusInputData"
+            data-copy-allowed="true"
+            placeholder=
+        ></textarea>
+
+        <div class="bonus-slot-buttons">
+            <button class="bonus-submit" type="button" onclick="bonusUraikanData()">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> SUBMIT
+            </button>
+
+            <button class="bonus-reset" type="button" onclick="bonusResetData()">
+                <i class="fa-solid fa-rotate-left"></i> RESET
+            </button>
+
+            <button class="bonus-copy" type="button" onclick="bonusSalinHasil()">
+                <i class="fa-solid fa-copy"></i> SALIN HASIL
+            </button>
+        </div>
+
+        <h3 class="bonus-slot-section-title">Hasil Uraian Data</h3>
+
+        <div class="bonus-slot-table-wrap">
+            <table class="bonus-slot-table">
+                <thead>
+                    <tr>
+                        <th>USER ID</th>
+                        <th>NAMA REKENING</th>
+                        <th>NOMOR REKENING</th>
+                        <th>PROVIDER</th>
+                        <th>PERMAINAN</th>
+                        <th>ROUND ID</th>
+                        <th>SUPER BUY FREE SPIN</th>
+                        <th>KEMENANGAN</th>
+                        <th>TARUHAN</th>
+                    </tr>
+                </thead>
+                <tbody id="bonusIsiTabel">
+                    <tr>
+                        <td colspan="9" class="bonus-slot-empty">Belum ada data yang diproses.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bonus-slot-notification" id="bonusNotification"></div>
+    </div>
+</aside>
+
+
 <script>
+
+
+
+/* =====================================================
+   PANEL BONUS KEMENANGAN HARIAN SLOT
+===================================================== */
+let bonusDataTerakhir = [];
+let bonusTeksSalinanMurni = '';
+let bonusNotifTimer = null;
+
+function openBonusSlot(){
+    const panel = document.getElementById('bonusSlotPanel');
+    const backdrop = document.getElementById('bonusSlotBackdrop');
+
+    panel.classList.add('show');
+    backdrop.classList.add('show');
+    panel.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+
+    const submenu = document.getElementById('lap');
+    if(submenu) submenu.classList.remove('show');
+
+    setTimeout(() => {
+        const input = document.getElementById('bonusInputData');
+        if(input) input.focus();
+    },250);
+}
+
+function closeBonusSlot(){
+    const panel = document.getElementById('bonusSlotPanel');
+    const backdrop = document.getElementById('bonusSlotBackdrop');
+
+    if(panel){
+        panel.classList.remove('show');
+        panel.setAttribute('aria-hidden','true');
+    }
+
+    if(backdrop) backdrop.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function bonusUraikanData(){
+    const input = document.getElementById('bonusInputData').value.trim();
+
+    if(input === ''){
+        bonusTampilkanNotifikasi('Silakan masukkan data terlebih dahulu.',true);
+        return;
+    }
+
+    const blokTransaksi = input
+        .split(/\n\s*\n+/)
+        .map(blok => blok.trim())
+        .filter(Boolean);
+
+    bonusDataTerakhir = blokTransaksi
+        .map(blok => bonusProsesSatuTransaksi(blok))
+        .filter(Boolean);
+
+    if(bonusDataTerakhir.length === 0){
+        bonusTampilkanNotifikasi('Data tidak berhasil dibaca. Periksa susunan datanya.',true);
+        return;
+    }
+
+    bonusTampilkanTabel();
+    bonusBuatHasilSalinan();
+    bonusTampilkanNotifikasi(`${bonusDataTerakhir.length} data berhasil diuraikan.`);
+}
+
+function bonusProsesSatuTransaksi(blok){
+    const baris = blok
+        .split(/\r?\n/)
+        .map(item => item.trim())
+        .filter(Boolean);
+
+    if(baris.length < 3) return null;
+
+    const permainan = baris[0] || '-';
+    const provider = baris[1] || '-';
+    const roundId = baris[2] || '-';
+    let userId = '-';
+    let kemenangan = '-';
+
+    const indexExtId = baris.findIndex(item => /^ext\.?\s*id\s*:/i.test(item));
+
+    if(indexExtId !== -1 && baris[indexExtId + 1]){
+        userId = baris[indexExtId + 1];
+    }
+
+    const indexCredit = baris.findIndex(item => /^credit$/i.test(item));
+
+    if(indexCredit !== -1 && baris[indexCredit + 1]){
+        kemenangan = bonusBersihkanNominal(baris[indexCredit + 1]);
+    }else{
+        const nominalDitemukan = baris.find(item => /^IDR\s*[\d.,]+$/i.test(item));
+        if(nominalDitemukan){
+            kemenangan = bonusBersihkanNominal(nominalDitemukan);
+        }
+    }
+
+    return [
+        userId,
+        '-',
+        '-',
+        provider,
+        permainan,
+        roundId,
+        '-',
+        kemenangan,
+        '-'
+    ];
+}
+
+function bonusBersihkanNominal(nominal){
+    const hasil = String(nominal)
+        .replace(/^IDR\s*/i,'')
+        .replace(/^Rp\.?\s*/i,'')
+        .trim();
+
+    return hasil || '-';
+}
+
+function bonusTampilkanTabel(){
+    const isiTabel = document.getElementById('bonusIsiTabel');
+    isiTabel.innerHTML = '';
+
+    bonusDataTerakhir.forEach(baris => {
+        const tr = document.createElement('tr');
+
+        baris.forEach(item => {
+            const td = document.createElement('td');
+            td.textContent = String(item || '-');
+            tr.appendChild(td);
+        });
+
+        isiTabel.appendChild(tr);
+    });
+}
+
+function bonusBuatHasilSalinan(){
+    // Clipboard hanya berisi isi data, tanpa judul kolom atau keterangan lain.
+    bonusTeksSalinanMurni = bonusDataTerakhir
+        .map(baris => baris.join('\t'))
+        .join('\n');
+}
+
+function bonusResetData(){
+    document.getElementById('bonusInputData').value = '';
+    document.getElementById('bonusIsiTabel').innerHTML = `
+        <tr>
+            <td colspan="9" class="bonus-slot-empty">Belum ada data yang diproses.</td>
+        </tr>
+    `;
+
+    bonusDataTerakhir = [];
+    bonusTeksSalinanMurni = '';
+    bonusTampilkanNotifikasi('Form berhasil direset.');
+    document.getElementById('bonusInputData').focus();
+}
+
+async function bonusSalinHasil(){
+    if(bonusTeksSalinanMurni.trim() === ''){
+        bonusTampilkanNotifikasi('Belum ada hasil yang dapat disalin.',true);
+        return;
+    }
+
+    try{
+        await navigator.clipboard.writeText(bonusTeksSalinanMurni);
+        bonusTampilkanNotifikasi('Data murni berhasil disalin tanpa judul kolom.');
+    }catch(error){
+        bonusSalinDenganTextareaSementara(bonusTeksSalinanMurni);
+    }
+}
+
+function bonusSalinDenganTextareaSementara(teks){
+    const textarea = document.createElement('textarea');
+    textarea.id = 'bonusCopyTemp';
+    textarea.dataset.copyAllowed = 'true';
+    textarea.value = teks;
+    textarea.setAttribute('readonly','');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '-9999px';
+    textarea.style.opacity = '0';
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    textarea.setSelectionRange(0,textarea.value.length);
+
+    const berhasil = document.execCommand('copy');
+    textarea.remove();
+
+    if(berhasil){
+        bonusTampilkanNotifikasi('Data murni berhasil disalin tanpa judul kolom.');
+    }else{
+        bonusTampilkanNotifikasi('Gagal menyalin. Gunakan browser HTTPS atau salin secara manual.',true);
+    }
+}
+
+function bonusTampilkanNotifikasi(pesan,isError = false){
+    const notif = document.getElementById('bonusNotification');
+    if(!notif) return;
+
+    clearTimeout(bonusNotifTimer);
+    notif.textContent = pesan;
+    notif.classList.toggle('error',isError);
+    notif.style.display = 'block';
+
+    bonusNotifTimer = setTimeout(() => {
+        notif.style.display = 'none';
+    },2500);
+}
+
 
 /* =====================================================
    HALAMAN GENERATOR GANTI DATA
@@ -1637,6 +2208,7 @@ function openDashboard(name){
 
 /* LOGOUT LANGSUNG WAJIB LOGIN ULANG */
 function logoutAccess(){
+    closeBonusSlot();
     sessionStorage.clear();
 
     document.getElementById('mainApp').classList.add('locked');
@@ -1848,7 +2420,13 @@ document.addEventListener('contextmenu', function(e){
 });
 
 document.addEventListener('copy', function(e){
-    if(e.target && (e.target.id === 'resultBox' || e.target.id === 'dataInput')){
+    if(e.target && (
+        e.target.id === 'resultBox' ||
+        e.target.id === 'dataInput' ||
+        e.target.id === 'bonusInputData' ||
+        e.target.id === 'bonusCopyTemp' ||
+        e.target.dataset.copyAllowed === 'true'
+    )){
         return;
     }
     e.preventDefault();
@@ -1856,11 +2434,26 @@ document.addEventListener('copy', function(e){
 });
 
 document.addEventListener('cut', function(e){
-    if(e.target && (e.target.id === 'resultBox' || e.target.id === 'dataInput')){
+    if(e.target && (
+        e.target.id === 'resultBox' ||
+        e.target.id === 'dataInput' ||
+        e.target.id === 'bonusInputData' ||
+        e.target.id === 'bonusCopyTemp' ||
+        e.target.dataset.copyAllowed === 'true'
+    )){
         return;
     }
     e.preventDefault();
     showProtectWarning();
+});
+
+document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+        const panel = document.getElementById('bonusSlotPanel');
+        if(panel && panel.classList.contains('show')){
+            closeBonusSlot();
+        }
+    }
 });
 
 document.addEventListener('keydown', function(e){
